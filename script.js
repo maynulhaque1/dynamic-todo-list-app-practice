@@ -42,14 +42,6 @@
 // •	condition check
 // •	dynamic content update
 
-// Task 15.5 — LocalStorage দিয়ে task save
-// বা
-// Enter key press এ task add
-// দুটোর যেকোনো একটা দিতে পারি
-
-
-
-
 // seclect body:
 const body = document.body;
 
@@ -94,8 +86,9 @@ function messageHideShow() {
     }
 }
 
+// button.addEventListener("click", function()
 // button event:
-button.addEventListener("click", function() {
+function addText() {
     const inputValue = input.value.trim();
 
     // empty check:
@@ -118,6 +111,7 @@ button.addEventListener("click", function() {
     li.appendChild(span);
     li.appendChild(deletBtn);
     list.appendChild(li);
+
     messageHideShow();
 
     // li remove:
@@ -128,6 +122,14 @@ button.addEventListener("click", function() {
 
     // input clear:
     input.value = "";
+};
 
+button.addEventListener("click", addText);
+
+// keyboard enter add:
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        addText();
+    }
 });
 
